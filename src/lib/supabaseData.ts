@@ -202,6 +202,8 @@ export function mapRequestFromDB(row: any): any {
     redistributedTo: row.redistributed_to, redistributedBy: row.redistributed_by,
     attachments: row.attachments || [],
     deliveryLinks: row.delivery_links || [],
+    lido: row.lido || false,
+    lidoEm: row.lido_em,
   };
 }
 
@@ -216,6 +218,8 @@ export function mapRequestToDB(r: any): any {
     redistributed_to: r.redistributedTo, redistributed_by: r.redistributedBy,
     attachments: r.attachments || [],
     delivery_links: r.deliveryLinks || [],
+    lido: r.lido || false,
+    lido_em: r.lidoEm,
   };
 }
 
