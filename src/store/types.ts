@@ -37,6 +37,8 @@ export interface InternalRequest {
   redistributedBy?: string;
   attachments?: string[];
   deliveryLinks?: string[];
+  lido?: boolean;
+  lidoEm?: string;
 }
 
 export interface ProductivityRecord {
