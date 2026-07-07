@@ -38,13 +38,14 @@ import SettingsPage from "./pages/SettingsPage";
 import AIIntegrationPage from "./pages/AIIntegrationPage";
 import QuoteRequestsPage from "./pages/QuoteRequestsPage";
 import RequestsPage from "./pages/RequestsPage";
+import FeedbacksPage from "./pages/FeedbacksPage";
 import HelpCenterPage from "./pages/HelpCenterPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import NotFound from "./pages/NotFound";
 import { Loader2 } from "lucide-react";
 
 const queryClient = new QueryClient();
-const DEFAULT_MODULES = ["dashboard", "clients", "tasks", "requests", "ad-hoc", "help"];
+const DEFAULT_MODULES = ["dashboard", "clients", "tasks", "requests", "feedbacks", "ad-hoc", "help"];
 
 function ProtectedRoute({ children, moduleKey }: { children: React.ReactNode; moduleKey: string }) {
   const currentUser = useAuthStore((s) => s.currentUser);
@@ -187,6 +188,7 @@ function AuthenticatedApp() {
         <Route path="/ai-alerts" element={<ProtectedRoute moduleKey="ai-alerts"><AIAlertsPage /></ProtectedRoute>} />
         <Route path="/quote-requests" element={<ProtectedRoute moduleKey="quote-requests"><QuoteRequestsPage /></ProtectedRoute>} />
         <Route path="/requests" element={<ProtectedRoute moduleKey="requests"><RequestsPage /></ProtectedRoute>} />
+        <Route path="/feedbacks" element={<ProtectedRoute moduleKey="feedbacks"><FeedbacksPage /></ProtectedRoute>} />
         <Route path="/dashboard-executive" element={<DashboardPage />} />
         <Route path="/dashboard-ops" element={<ProtectedRoute moduleKey="dashboard-ops"><DashboardOpsPage /></ProtectedRoute>} />
         <Route path="/dashboard-financial" element={<ProtectedRoute moduleKey="dashboard-financial"><DashboardFinancialPage /></ProtectedRoute>} />
