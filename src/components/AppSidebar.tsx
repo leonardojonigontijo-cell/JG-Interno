@@ -8,7 +8,7 @@ import {
   Wrench, RefreshCw, Bot, BarChart3, Activity, TrendingUp,
   Shield, ClipboardList, ChevronDown, ChevronRight, Zap, Calendar,
   Settings, Menu, X, LogOut, Send, HelpCircle, KeyRound, Eye, EyeOff, Mail,
-  Sun, Moon, Laptop, MessageSquare
+  Sun, Moon, Laptop, MessageSquare, Star
 } from "lucide-react";
 import { useTheme, type Theme } from "@/hooks/useTheme";
 import { supabase } from "@/integrations/supabase/client";
@@ -70,6 +70,7 @@ const navSections: NavSection[] = [
       { label: "Aprovações", icon: CheckCircle, path: "/approvals", badgeKey: "approvals", moduleKey: "approvals" },
       { label: "Requisições", icon: Send, path: "/requests", badgeKey: "requests", moduleKey: "requests" },
       { label: "Feedbacks", icon: MessageSquare, path: "/feedbacks", badgeKey: "feedbacks", moduleKey: "feedbacks" },
+      { label: "NPS", icon: Star, path: "/nps", moduleKey: "nps" },
       { label: "Demandas Avulsas", icon: Wrench, path: "/ad-hoc", moduleKey: "ad-hoc" },
       { label: "Recorrências", icon: RefreshCw, path: "/recurrences", moduleKey: "recurrences" },
       { label: "IA Campanhas", icon: Bot, path: "/ai-alerts", moduleKey: "ai-alerts" },
@@ -89,7 +90,7 @@ const navSections: NavSection[] = [
 
 function userHasModule(moduleKey: string, moduleAccess?: string[], isAdmin?: boolean): boolean {
   if (isAdmin) return true;
-  if (!moduleAccess) return ["dashboard", "clients", "tasks", "requests", "feedbacks", "ad-hoc", "recurrences"].includes(moduleKey);
+  if (!moduleAccess) return ["dashboard", "clients", "tasks", "requests", "feedbacks", "nps", "ad-hoc", "recurrences"].includes(moduleKey);
   return moduleAccess.includes(moduleKey);
 }
 
