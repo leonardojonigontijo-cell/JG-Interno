@@ -17,6 +17,18 @@ export interface QuoteRequest {
   paidAt?: string;
 }
 
+export interface NPSVote {
+  id: string;
+  jginternoUsername: string;
+  gestorNome: string;
+  jginternoMemberId?: string;
+  clientName: string;
+  jgAppClienteId?: string;
+  nota: number;
+  comentario?: string;
+  createdAt: string;
+}
+
 export interface InternalRequest {
   id: string;
   title: string;
@@ -105,6 +117,7 @@ export interface AppState {
   clientDna: ClientDna[];
   clientPipelines: ClientPipelineState[];
   requests: InternalRequest[];
+  npsVotes: NPSVote[];
   productivity: ProductivityRecord[];
   notifications: { module: string; count: number }[];
   settings: SettingItem[];
@@ -116,6 +129,7 @@ export interface AppState {
   reloadLeads: () => Promise<void>;
   reloadQuotes: () => Promise<void>;
   reloadRequests: () => Promise<void>;
+  reloadNPSVotes: () => Promise<void>;
   reset: () => void;
 
   updateSetting: (id: string, value: string) => void;
